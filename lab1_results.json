@@ -1,0 +1,50 @@
+{
+  "project_files": [
+    "project_code\\review_classifier.py"
+  ],
+  "corpus_size": 58,
+  "split": {
+    "train": 46,
+    "val": 6,
+    "test": 6
+  },
+  "experiments": [
+    {
+      "name": "e2_bs4_lr5e-5",
+      "epochs": 2,
+      "batch_size": 4,
+      "lr": 5e-05,
+      "eval_loss": 1.6970769166946411,
+      "perplexity": 5.457969950564283,
+      "train_time_sec": 279.7
+    },
+    {
+      "name": "e3_bs4_lr5e-5",
+      "epochs": 3,
+      "batch_size": 4,
+      "lr": 5e-05,
+      "eval_loss": 2.222698211669922,
+      "perplexity": 9.232207739916635,
+      "train_time_sec": 449.9
+    },
+    {
+      "name": "e3_bs6_lr3e-5",
+      "epochs": 3,
+      "batch_size": 6,
+      "lr": 3e-05,
+      "eval_loss": 2.3250484466552734,
+      "perplexity": 10.22717554623731,
+      "train_time_sec": 507.4
+    }
+  ],
+  "best": {
+    "name": "e2_bs4_lr5e-5",
+    "epochs": 2,
+    "batch_size": 4,
+    "lr": 5e-05,
+    "eval_loss": 1.6970769166946411,
+    "perplexity": 5.457969950564283,
+    "train_time_sec": 279.7
+  },
+  "test_masked_accuracy": 0.4854368932038835
+}

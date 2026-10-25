@@ -1,0 +1,9 @@
+numpy~=2.4.6
+pandas~=3.0.3
+transformers>=4.40
+datasets
+torch
+pandas
+fastapi
+uvicorn[standard]
+accelerate
