@@ -1,0 +1,3 @@
+{"nl": "Добавить новую страну под названием Spain", "sql": "INSERT INTO Country (name) VALUES ('Spain');"}
+{"nl": "Удалить игрока с именем 'Lionel Messi'", "sql": "DELETE FROM Player WHERE player_name = 'Lionel Messi';"}
+{"nl": "Обновить вес игрока с id 1234 на 80", "sql": "UPDATE Player SET weight = 80 WHERE id = 1234;"}

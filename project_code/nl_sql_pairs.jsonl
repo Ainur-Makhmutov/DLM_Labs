@@ -1,0 +1,10 @@
+{"nl": "Показать названия всех стран", "sql": "SELECT name FROM Country;"}
+{"nl": "Вывести все лиги в Англии", "sql": "SELECT League.name FROM League JOIN Country ON League.country_id = Country.id WHERE Country.name = 'England';"}
+{"nl": "Сколько всего матчей было сыграно в сезоне 2015/2016", "sql": "SELECT COUNT(*) FROM \"Match\" WHERE season = '2015/2016';"}
+{"nl": "Список команд с длинным названием которых есть слово 'United'", "sql": "SELECT team_long_name FROM Team WHERE team_long_name LIKE '%United%';"}
+{"nl": "Средний рост всех игроков", "sql": "SELECT AVG(height) FROM Player;"}
+{"nl": "Вывести имя, вес и рост самого тяжелого игрока", "sql": "SELECT player_name, weight, height FROM Player ORDER BY weight DESC LIMIT 1;"}
+{"nl": "Топ 5 игроков с самым высоким общим рейтингом (overall_rating)", "sql": "SELECT p.player_name, pa.overall_rating FROM Player p JOIN Player_Attributes pa ON p.player_api_id = pa.player_api_id ORDER BY pa.overall_rating DESC LIMIT 5;"}
+{"nl": "Сколько матчей закончилось вничью (голы хозяев равны голам гостей)", "sql": "SELECT COUNT(*) FROM \"Match\" WHERE home_team_goal = away_team_goal;"}
+{"nl": "Найти все матчи, где хозяева забили больше 3 голов", "sql": "SELECT match_api_id, date, home_team_goal, away_team_goal FROM \"Match\" WHERE home_team_goal > 3;"}
+{"nl": "Вывести средний рейтинг игроков из страны Germany", "sql": "SELECT AVG(pa.overall_rating) FROM Player p JOIN Player_Attributes pa ON p.player_api_id = pa.player_api_id JOIN \"Match\" m ON p.player_api_id = m.home_player_1 JOIN Country c ON m.country_id = c.id WHERE c.name = 'Germany';"}

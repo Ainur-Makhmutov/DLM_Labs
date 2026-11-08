@@ -220,3 +220,7 @@ __marimo__/
 .streamlit/secrets.toml
 /bert-base-uncased
 /lab1_model
+project_code/database.sqlite
+/codet5-base
+/codet5_nl2sql
+/codet5_tokenizer_fixed

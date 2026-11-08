@@ -1,0 +1,24 @@
+{
+  "corpus_size": 13,
+  "select_size": 10,
+  "dml_size": 3,
+  "split": {
+    "train": 11,
+    "val": 1,
+    "test": 1
+  },
+  "experiments": [
+    {
+      "name": "codet5_seq2seq",
+      "epochs": 3,
+      "bs": 8,
+      "lr": 3e-05,
+      "eval_loss": 2.3250484466552734,
+      "perplexity": 10.22717554623731,
+      "time_s": 507.4
+    }
+  ],
+  "test": {
+    "execution_accuracy": 0.48
+  }
+}

@@ -13,7 +13,7 @@ DB        = "erp.db"
 SEL_PAIRS = "nl_sql_pairs.jsonl"
 DML_PAIRS = "nl_sql_pairs_dml.jsonl"
 SEED      = 42
-MODEL     = "Salesforce/codet5-base"
+MODEL     = "./codet5-base"
 OUT_DIR   = "codet5_nl2sql"
 TOK_DIR = "codet5_tokenizer_fixed"
 
@@ -56,15 +56,14 @@ def exec_accuracy(preds, golds, conn):
     return ok / total if total else 0.0
 
 def run_codet5(train_pairs, val_pairs, epochs=3, bs=8, lr=3e-5):
+    # Проверяем, что папка с моделью существует
+    if not os.path.exists(MODEL):
+        raise FileNotFoundError(f"Папка с моделью не найдена по пути: {MODEL}")
 
-    cache_dir = snapshot_download(
-        MODEL,
-        allow_patterns=["*.json", "merges.txt", "vocab.json"],
-    )
-
+    # Копируем токенизатор для фикса
     if os.path.exists(TOK_DIR):
         shutil.rmtree(TOK_DIR)
-    shutil.copytree(cache_dir, TOK_DIR)
+    shutil.copytree(MODEL, TOK_DIR)
 
     stm_path = os.path.join(TOK_DIR, "special_tokens_map.json")
     if os.path.exists(stm_path):
@@ -176,9 +175,9 @@ def main():
         "experiments": [rB],
         "test": {"exact_match": float(em), "execution_accuracy": float(exa)},
     }
-    json.dump(report, open("lab1_nl2sql_results.json", "w", encoding="utf-8"),
+    json.dump(report, open("lab2_results.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
-    print("\n[OK] lab2_nl2sql_results.json записан")
+    print("\n[OK] lab2_results.json записан")
 
 if __name__ == "__main__":
     main()
